@@ -398,13 +398,6 @@ def main() -> None:
     except ValueError as exc:
         raise SystemExit(str(exc))
 
-    total_queries = args.maxdays * args.maxsubastas
-    if total_queries > 10:
-        print(
-            "[WARN] Esta ejecución supera 10 consultas "
-            f"({total_queries} = maxdays*maxsubastas)."
-        )
-
     base_dir = Path(__file__).resolve().parent
     data_dir = base_dir / "data"
     store = JsonStore(data_dir)
